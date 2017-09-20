@@ -1,0 +1,6 @@
+framework module CandyMoya {
+  umbrella header "CandyMoya-umbrella.h"
+
+  export *
+  module * { export * }
+}
