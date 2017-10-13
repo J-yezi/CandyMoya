@@ -17,7 +17,7 @@ public enum CandyRoute {
     case head(String)
     case patch(String)
     case trace(String)
-    case connect(String)
+    case connect(String) 
     
     public var path: String {
         switch self {

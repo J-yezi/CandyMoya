@@ -2,7 +2,6 @@ PODS:
   - Alamofire (4.5.1)
   - CandyMoya (0.0.1):
     - CandyMoya/Core (= 0.0.1)
-    - Moya (= 8.0.5)
   - CandyMoya/Core (0.0.1):
     - Moya (= 8.0.5)
   - Moya (8.0.5):
@@ -21,10 +20,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  CandyMoya: 2e4c2d4e897dc5b1bf863ff87a7d47415c1fbe13
+  CandyMoya: f7f859efeceaa045851302893a99ab75fe1a842d
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
 
 PODFILE CHECKSUM: 70c377d929c72778bda3aa22b1f9795ca49ebabd
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.beta.1
