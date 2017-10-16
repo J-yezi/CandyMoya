@@ -1,6 +1,6 @@
 {
   "name": "CandyMoya",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "封装网络请求",
   "homepage": "https://github.com/J-yezi/CandyMoya",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/J-yezi/CandyMoya.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "8.0"

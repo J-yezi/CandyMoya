@@ -1,18 +1,23 @@
 PODS:
   - Alamofire (4.5.1)
-  - CandyMoya (0.0.1):
-    - CandyMoya/Core (= 0.0.1)
-  - CandyMoya/Core (0.0.1):
+  - CandyMoya/Core (0.0.2):
     - Moya (= 8.0.5)
+  - CandyMoya/RxSwift (0.0.2):
+    - CandyMoya/Core
+    - Moya/RxSwift (= 8.0.5)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
   - Moya/Core (8.0.5):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Result (3.2.3)
+  - Moya/RxSwift (8.0.5):
+    - Moya/Core
+    - RxSwift (~> 3.0)
+  - Result (3.2.4)
+  - RxSwift (3.6.1)
 
 DEPENDENCIES:
-  - CandyMoya (from `../`)
+  - CandyMoya/RxSwift (from `../`)
 
 EXTERNAL SOURCES:
   CandyMoya:
@@ -20,10 +25,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  CandyMoya: f7f859efeceaa045851302893a99ab75fe1a842d
+  CandyMoya: 647a4940acbef1f8c91079c9be096178b7671982
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
-  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
 
-PODFILE CHECKSUM: 70c377d929c72778bda3aa22b1f9795ca49ebabd
+PODFILE CHECKSUM: 4e08069a1b2d5602ef6739d4298d60969229c7b4
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.3.1

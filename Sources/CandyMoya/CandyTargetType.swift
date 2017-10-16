@@ -27,6 +27,9 @@ public protocol CandyTargetType: TargetType {
     
     /// 设置http的header
     var httpHeaderFields: [String: String]? { get }
+
+    /// 设置http的默认header
+    var defaultHeaderFields: [String: String]? { get }
 }
 
 public extension CandyTargetType {
@@ -55,6 +58,10 @@ public extension CandyTargetType {
     }
     
     var httpHeaderFields: [String: String]? {
+        return nil
+    }
+
+    var defaultHeaderFields: [String: String]? {
         return nil
     }
     

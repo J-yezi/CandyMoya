@@ -23,9 +23,15 @@ public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target
         trackInflights: Bool = false) {
         func candyEndpointClosure(target: Target) -> Endpoint<Target> {
             let endpoint = endpointClosure(target)
+            /// 合并参数
             var parameters = endpoint.parameters
             if let defaultParams = target.defaultParams {
                 parameters = defaultParams + parameters
+            }
+            /// 合并header
+            var headerFields = endpoint.httpHeaderFields
+            if let defaultHeaderFields = target.httpHeaderFields {
+                headerFields = (defaultHeaderFields + headerFields) as? [String : String]
             }
             return Endpoint<Target>(
                 url: target.completeURL.absoluteString,
