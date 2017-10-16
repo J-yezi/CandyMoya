@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name         = 'CandyMoya'
-    s.version      = '0.0.2'
+    s.version      = '0.0.3'
     s.summary      = '封装网络请求'
     s.homepage     = 'https://github.com/J-yezi/CandyMoya'
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
