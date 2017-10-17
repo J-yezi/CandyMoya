@@ -31,7 +31,7 @@ public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target
             /// 合并header
             var headerFields = endpoint.httpHeaderFields
             if let defaultHeaderFields = target.httpHeaderFields {
-                headerFields = (defaultHeaderFields + headerFields) as? [String : String]
+                headerFields = (defaultHeaderFields + headerFields)
             }
             return Endpoint<Target>(
                 url: target.completeURL.absoluteString,

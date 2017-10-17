@@ -31,7 +31,7 @@ public class CandyMoyaProvider<Target: CandyTargetType>: MoyaProvider<Target> {
             /// 合并header
             var headerFields = endpoint.httpHeaderFields
             if let defaultHeaderFields = target.httpHeaderFields {
-                headerFields = (defaultHeaderFields + headerFields) as? [String : String]
+                headerFields = (defaultHeaderFields + headerFields)
             }
             return Endpoint<Target>(
                 url: target.completeURL.absoluteString,
@@ -70,8 +70,8 @@ extension MoyaProvider {
     }
 }
 
-extension Dictionary where Key == String, Value == Any {
-    static func + (lhs: [String: Any], rhs: [String: Any]?) -> [String: Any] {
+extension Dictionary where Key == String {
+    static func + (lhs: [String: Value], rhs: [String: Value]?) -> [String: Value] {
         guard let rhs = rhs else { return lhs }
         
         var lhs = lhs
