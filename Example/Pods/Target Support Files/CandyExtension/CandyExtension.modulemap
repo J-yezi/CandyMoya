@@ -1,0 +1,6 @@
+framework module CandyExtension {
+  umbrella header "CandyExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

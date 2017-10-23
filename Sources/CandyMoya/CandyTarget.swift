@@ -13,8 +13,9 @@ import Alamofire
 public typealias Task = Moya.Task
 public typealias Method = Moya.Method
 public typealias ParameterEncoding = Moya.ParameterEncoding
+public typealias Response = Moya.Response
 
-public protocol CandyTargetType: TargetType {
+public protocol CandyTarget: TargetType {
     
     /// 完整的url地址
     var completeURL: URL { get }
@@ -32,7 +33,7 @@ public protocol CandyTargetType: TargetType {
     var defaultHeaderFields: [String: String]? { get }
 }
 
-public extension CandyTargetType {
+public extension CandyTarget {
     var completeURL: URL {
         return baseURL.appendingPathComponent(path)
     }

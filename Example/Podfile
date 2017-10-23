@@ -3,5 +3,6 @@ platform :ios, '8.0'
 target 'Example' do
   use_frameworks!
   pod 'CandyMoya/RxSwift', :path => '../'
+  pod 'CandyExtension', '3.2.1'
 
 end

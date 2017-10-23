@@ -33,7 +33,7 @@ public struct DefaultDataResponse {
     public let response: HTTPURLResponse?
 
     /// The data returned by the server.
-    public let data: Data?
+    public var data: Data?
 
     /// The error encountered while executing or validating the request.
     public let error: Error?

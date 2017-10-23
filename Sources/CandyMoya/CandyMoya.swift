@@ -8,7 +8,7 @@
 
 import Moya
 
-public class CandyMoyaProvider<Target: CandyTargetType>: MoyaProvider<Target> {
+public class CandyMoyaProvider<Target: CandyTarget>: MoyaProvider<Target> {
     public convenience init(_ timeout: TimeInterval) {
         let manager = MoyaProvider<Target>.candyAlamofireManager(timeout: timeout)
         self.init(manager: manager)
@@ -21,6 +21,7 @@ public class CandyMoyaProvider<Target: CandyTargetType>: MoyaProvider<Target> {
         manager: Manager = MoyaProvider<Target>.defaultAlamofireManager(),
         plugins: [PluginType] = [],
         trackInflights: Bool = false) {
+        
         func candyEndpointClosure(target: Target) -> Endpoint<Target> {
             let endpoint = endpointClosure(target)
             /// 合并参数
@@ -29,8 +30,8 @@ public class CandyMoyaProvider<Target: CandyTargetType>: MoyaProvider<Target> {
                 parameters = defaultParams + parameters
             }
             /// 合并header
-            var headerFields = endpoint.httpHeaderFields
-            if let defaultHeaderFields = target.httpHeaderFields {
+            var headerFields = target.httpHeaderFields
+            if let defaultHeaderFields = target.defaultHeaderFields {
                 headerFields = (defaultHeaderFields + headerFields)
             }
             return Endpoint<Target>(
@@ -70,8 +71,8 @@ extension MoyaProvider {
     }
 }
 
-extension Dictionary where Key == String {
-    static func + (lhs: [String: Value], rhs: [String: Value]?) -> [String: Value] {
+extension Dictionary {
+    static func + (lhs: [Key: Value], rhs: [Key: Value]?) -> [Key: Value] {
         guard let rhs = rhs else { return lhs }
         
         var lhs = lhs

@@ -22,6 +22,8 @@ Pod::Spec.new do |s|
         ss.source_files = 'Sources/RxCandyMoya/*.swift'
         ss.dependency 'CandyMoya/Core'
         ss.dependency 'Moya/RxSwift', '8.0.5'
+        ss.dependency 'ObjectMapper', '3.0.0'
+        ss.dependency 'SwiftyJSON', '3.1.4'
     end
 
 end

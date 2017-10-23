@@ -8,8 +8,8 @@
 
 import Moya
 
-public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target> {
-    public convenience init(_ timeout: TimeInterval) {
+public class RxCandyMoyaProvider<Target: CandyTarget>: RxMoyaProvider<Target> {
+    public convenience init(timeout: TimeInterval) {
         let manager = MoyaProvider<Target>.candyAlamofireManager(timeout: timeout)
         self.init(manager: manager)
     }
@@ -21,6 +21,7 @@ public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target
         manager: Manager = MoyaProvider<Target>.defaultAlamofireManager(),
         plugins: [PluginType] = [],
         trackInflights: Bool = false) {
+        
         func candyEndpointClosure(target: Target) -> Endpoint<Target> {
             let endpoint = endpointClosure(target)
             /// 合并参数
@@ -29,9 +30,9 @@ public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target
                 parameters = defaultParams + parameters
             }
             /// 合并header
-            var headerFields = endpoint.httpHeaderFields
-            if let defaultHeaderFields = target.httpHeaderFields {
-                headerFields = (defaultHeaderFields + headerFields)
+            var headerFields = target.httpHeaderFields
+            if let defaultHeaderFields = target.defaultHeaderFields {
+                headerFields = defaultHeaderFields + headerFields
             }
             return Endpoint<Target>(
                 url: target.completeURL.absoluteString,
@@ -39,7 +40,7 @@ public class RxCandyMoyaProvider<Target: CandyTargetType>: RxMoyaProvider<Target
                 method: endpoint.method,
                 parameters: parameters,
                 parameterEncoding: endpoint.parameterEncoding,
-                httpHeaderFields: endpoint.httpHeaderFields ?? target.httpHeaderFields
+                httpHeaderFields: headerFields
             )
         }
         
